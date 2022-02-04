@@ -50,7 +50,7 @@ public class CubeMove : MonoBehaviour
 	Vector3 rotateAxis = Vector3.zero;   //回転軸
 	float cubeAngle = 0f;                //回転角度
 
-	public GameObject[] panelObject; //配列に自分はどのパネルなのかを入れる
+	public GameObject[] panelObject;     //配列に自分はどのパネルなのかを入れる
     ChangeColor[] colorcs = new ChangeColor[6]; //配列に要素を代入
 	float cubeSizeHalf;                  //キューブの大きさの半分
 	bool isRotate = false;               //回転中に立つフラグ。回転中は入力を受け付けない
@@ -64,7 +64,8 @@ public class CubeMove : MonoBehaviour
 
 	public Text countText; //カウントのテキスト
 
-	
+	public GameObject cameraObject;
+	CameraRotate cameraAngle;
 
 	void Start()
 	{
@@ -81,12 +82,16 @@ public class CubeMove : MonoBehaviour
 
 		countText.text = "6"; //残りの染めないといけない面の数
 
-		
+		cameraAngle = cameraObject.GetComponent<CameraRotate>();
+
 	}
 
 
 	void Update()
 	{
+
+		//Debug.Log(cameraAngle.nowAngle);
+
 		count = 0; //フレームごとに初期化
 
 		//すべての面を見てあっていない面の数を見る
@@ -125,50 +130,101 @@ public class CubeMove : MonoBehaviour
 				gameEnd = true;
 			}
 
+			
+
 			latestisRotate = false;
 		}
 
-		
+
 
 		//ゲームが終わったら操作できなくなるようにする
 		if (!gameEnd)
 		{
-			//右
-			if (Input.GetKeyDown(KeyCode.RightArrow))
-			{
 
-				rotatePoint = transform.position + new Vector3(cubeSizeHalf, -cubeSizeHalf, 0f);
-				rotateAxis = new Vector3(0, 0, -1);
+			if(cameraAngle.nowAngle == 0.0f)
+            {
+				//プレイヤー移動処理
+				//右
+				if (Input.GetKeyDown(KeyCode.RightArrow))
+				{
+
+					rotatePoint = transform.position + new Vector3(cubeSizeHalf, -cubeSizeHalf, 0f);
+					rotateAxis = new Vector3(0, 0, -1);
+				}
+
+				//左
+				if (Input.GetKeyDown(KeyCode.LeftArrow))
+				{
+
+					rotatePoint = transform.position + new Vector3(-cubeSizeHalf, -cubeSizeHalf, 0f);
+					rotateAxis = new Vector3(0, 0, 1);
+
+				}
+
+				//上
+				if (Input.GetKeyDown(KeyCode.UpArrow))
+				{
+					rotatePoint = transform.position + new Vector3(0f, -cubeSizeHalf, cubeSizeHalf);
+					rotateAxis = new Vector3(1, 0, 0);
+				}
+
+				//下
+				if (Input.GetKeyDown(KeyCode.DownArrow))
+				{
+					rotatePoint = transform.position + new Vector3(0f, -cubeSizeHalf, -cubeSizeHalf);
+					rotateAxis = new Vector3(-1, 0, 0);
+				}
+
+				// 入力がない時はコルーチンを呼び出さないようにする
+				if (rotatePoint == Vector3.zero)
+					return;
+
+				StartCoroutine(MoveCube());
+
+
 			}
 
-			//左
-			if (Input.GetKeyDown(KeyCode.LeftArrow))
-			{
+			if (cameraAngle.nowAngle == 180)
+            {
+				//プレイヤー移動処理
+				//右
+				if (Input.GetKeyDown(KeyCode.RightArrow))
+				{
 
-				rotatePoint = transform.position + new Vector3(-cubeSizeHalf, -cubeSizeHalf, 0f);
-				rotateAxis = new Vector3(0, 0, 1);
+					rotatePoint = transform.position + new Vector3(-cubeSizeHalf, -cubeSizeHalf, 0f);
+					rotateAxis = new Vector3(0, 0, 1);
+				}
 
+				//左
+				if (Input.GetKeyDown(KeyCode.LeftArrow))
+				{
+
+					rotatePoint = transform.position + new Vector3(cubeSizeHalf, -cubeSizeHalf, 0f);
+					rotateAxis = new Vector3(0, 0, -1);
+
+				}
+
+				//上
+				if (Input.GetKeyDown(KeyCode.UpArrow))
+				{
+					rotatePoint = transform.position + new Vector3(0f, -cubeSizeHalf, -cubeSizeHalf);
+					rotateAxis = new Vector3(-1, 0, 0);
+				}
+
+				//下
+				if (Input.GetKeyDown(KeyCode.DownArrow))
+				{
+					rotatePoint = transform.position + new Vector3(0f, -cubeSizeHalf, cubeSizeHalf);
+					rotateAxis = new Vector3(1, 0, 0);
+				}
+
+				// 入力がない時はコルーチンを呼び出さないようにする
+				if (rotatePoint == Vector3.zero)
+					return;
+
+				StartCoroutine(MoveCube());
 			}
 
-			//上
-			if (Input.GetKeyDown(KeyCode.UpArrow))
-			{
-				rotatePoint = transform.position + new Vector3(0f, -cubeSizeHalf, cubeSizeHalf);
-				rotateAxis = new Vector3(1, 0, 0);
-			}
-
-			//下
-			if (Input.GetKeyDown(KeyCode.DownArrow))
-			{
-				rotatePoint = transform.position + new Vector3(0f, -cubeSizeHalf, -cubeSizeHalf);
-				rotateAxis = new Vector3(-1, 0, 0);
-			}
-
-			// 入力がない時はコルーチンを呼び出さないようにする
-			if (rotatePoint == Vector3.zero)
-				return;
-
-			StartCoroutine(MoveCube());
 		}
 
 	}
