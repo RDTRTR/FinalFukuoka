@@ -2080,6 +2080,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2199aadf1bb8c4449f3edfc84a39f78, type: 3}
+--- !u!1 &740985137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4132953977412792529, guid: 2ff2df2c096bb644aa292c01c91cca8e, type: 3}
+  m_PrefabInstance: {fileID: 4132953978060996147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &741319225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2717,8 +2722,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd5d856cf3f9e0141a4717146903dd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 17719982}
-  nowAngle: 0
+  Stage: {fileID: 17719982}
+  Camera: {fileID: 963194225}
+  rotateFlag: 0
+  count: 0
 --- !u!4 &982860087 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4925868257544670, guid: fd4804b84d34a784ea6831ede116af4c, type: 3}
@@ -8264,6 +8271,10 @@ PrefabInstance:
       propertyPath: playSound
       value: 
       objectReference: {fileID: 1086532836}
+    - target: {fileID: 4132953977412792539, guid: 2ff2df2c096bb644aa292c01c91cca8e, type: 3}
+      propertyPath: cubeObject
+      value: 
+      objectReference: {fileID: 740985137}
     - target: {fileID: 4132953977412792539, guid: 2ff2df2c096bb644aa292c01c91cca8e, type: 3}
       propertyPath: clearCanvas
       value: 

@@ -6,7 +6,6 @@ public class ChangeColor : MonoBehaviour
     // Unityエディタ上で変えたい色を指定できる。
     public Color color;
     public GameObject plane;
-    bool changeflag = false;
     public panelsetcolor mycolor = panelsetcolor.White;
     public GameObject playSound; //SE
 
