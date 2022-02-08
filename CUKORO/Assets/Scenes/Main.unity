@@ -7945,6 +7945,10 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 2182863119996529200, guid: 42306e4b6f75bb24590f5d67eb565244, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2182863119996529203, guid: 42306e4b6f75bb24590f5d67eb565244, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClickStartButton
@@ -8340,6 +8344,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7408689853535826547, guid: 2bfab04c0a651de4bbe9bff078f1c54d, type: 3}
+      propertyPath: Audio
+      value: 
+      objectReference: {fileID: 7408689854621949591}
+    - target: {fileID: 7408689853535826547, guid: 2bfab04c0a651de4bbe9bff078f1c54d, type: 3}
+      propertyPath: Audio2
+      value: 
+      objectReference: {fileID: 7408689854621949590}
     - target: {fileID: 7408689853535826557, guid: 2bfab04c0a651de4bbe9bff078f1c54d, type: 3}
       propertyPath: Loop
       value: 1
@@ -8358,3 +8370,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bfab04c0a651de4bbe9bff078f1c54d, type: 3}
+--- !u!82 &7408689854621949590 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7408689853535826557, guid: 2bfab04c0a651de4bbe9bff078f1c54d, type: 3}
+  m_PrefabInstance: {fileID: 7408689854621949589}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &7408689854621949591 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7408689853535826544, guid: 2bfab04c0a651de4bbe9bff078f1c54d, type: 3}
+  m_PrefabInstance: {fileID: 7408689854621949589}
+  m_PrefabAsset: {fileID: 0}

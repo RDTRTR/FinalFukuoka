@@ -58,13 +58,13 @@ public class CubeMove : MonoBehaviour
 
 	public GameObject clearCanvas; 　　　//クリア表示キャンバス
 	public GameObject playSound; 　　　　//SE
-	public bool gameEnd = false; 　　　　//ゲーム終了フラグ
+	bool gameEnd = false; 　　　　       //ゲーム終了フラグ
 
-	public int count; 　　　　　　　　　　//残りカウント
+	public int count; 　　　　　　　　　//残りカウント
 
 	public Text countText; //カウントのテキスト
 
-	public GameObject cameraObject; 　　　//カメラオブジェクト
+	public GameObject cameraObject; 　　//カメラオブジェクト
 	CameraRotate cameraRotate;
 
 	public GameObject cubeObject;
@@ -79,12 +79,12 @@ public class CubeMove : MonoBehaviour
 		for(int i = 0; i < 6; i++)
         {
 			//Debug.Log("A" + i);
-			colorcs[i] = panelObject[i].GetComponent<ChangeColor>();
+			colorcs[i] = panelObject[i].GetComponent<ChangeColor>(); //ChangeColorのCS情報
 		}
 
 		countText.text = "6"; //残りの染めないといけない面の数
 
-		cameraRotate = cameraObject.GetComponent<CameraRotate>();
+		cameraRotate = cameraObject.GetComponent<CameraRotate>(); //CameraRotateのCS情報
 
 	}
 

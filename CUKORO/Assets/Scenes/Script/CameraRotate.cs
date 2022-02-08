@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraRotate : MonoBehaviour
 {
-    //ステージを変数に格納
+    //オブジェクトを変数に格納
     public GameObject Stage;
     public GameObject Camera;
 
@@ -15,16 +16,20 @@ public class CameraRotate : MonoBehaviour
 
     void Start()
     {
-
+        
     }
-
 
     void Update()
     {
 
+        //ボタンがクリックされた時だけ反応する
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         //ステージ位置情報
         Vector3 stagePos = Stage.transform.position;
-
 
         //カメラを回転させる
         //左クリック

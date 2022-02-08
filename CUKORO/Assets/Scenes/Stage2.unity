@@ -8304,6 +8304,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7408689853535826547, guid: 2bfab04c0a651de4bbe9bff078f1c54d, type: 3}
+      propertyPath: Audio
+      value: 
+      objectReference: {fileID: 1832092779}
+    - target: {fileID: 7408689853535826547, guid: 2bfab04c0a651de4bbe9bff078f1c54d, type: 3}
+      propertyPath: Audio2
+      value: 
+      objectReference: {fileID: 1832092778}
     - target: {fileID: 7408689853535826557, guid: 2bfab04c0a651de4bbe9bff078f1c54d, type: 3}
       propertyPath: Loop
       value: 1
@@ -8322,6 +8330,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bfab04c0a651de4bbe9bff078f1c54d, type: 3}
+--- !u!82 &1832092778 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7408689853535826557, guid: 2bfab04c0a651de4bbe9bff078f1c54d, type: 3}
+  m_PrefabInstance: {fileID: 1832092777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1832092779 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7408689853535826544, guid: 2bfab04c0a651de4bbe9bff078f1c54d, type: 3}
+  m_PrefabInstance: {fileID: 1832092777}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1833000331
 PrefabInstance:
   m_ObjectHideFlags: 0
