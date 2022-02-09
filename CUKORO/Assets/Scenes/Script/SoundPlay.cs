@@ -8,7 +8,6 @@ public class SoundPlay : MonoBehaviour
     public AudioSource Audio;
     public AudioSource Audio2;
 
-
     public AudioClip clear;//AudioSourceを入れる
     public AudioClip rotate;
     bool isAudioStart = false; //曲再生の判定
@@ -21,7 +20,6 @@ public class SoundPlay : MonoBehaviour
 
     void OnEnter()
     {
-       
         Audio.PlayOneShot(clear);//AudioSourceを再生
         
         isAudioStart = true;//曲の再生を判定
@@ -35,14 +33,12 @@ public class SoundPlay : MonoBehaviour
 
     void OnStart()
     {
-        if (Audio != null)
-        {
-            Audio2.PlayOneShot(rotate);//AudioSourceを再生
-        }
+        Audio2.PlayOneShot(rotate);//AudioSourceを再生
 
         isAudioStart = true;//曲の再生を判定
-        if (!Audio2.isPlaying && isAudioStart)
+
         //曲が再生されていない、尚且つ曲の再生が開始されている時
+        if (!Audio2.isPlaying && isAudioStart)
         {
             Destroy(gameObject);//オブジェクトを消す
         }

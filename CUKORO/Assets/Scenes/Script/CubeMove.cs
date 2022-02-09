@@ -25,7 +25,7 @@ public class CubeMove : MonoBehaviour
 
 		checkcolor = panelObject[0].GetComponent<ChangeColor>().mycolor;
 
-		Debug.Log("call" + checkcolor);
+		//Debug.Log("call" + checkcolor);
 
 		//すべての面を調べ、違うならfalseを返す
 		for (int i = 0; i < 6; i++)
@@ -60,14 +60,12 @@ public class CubeMove : MonoBehaviour
 	public GameObject playSound; 　　　　//SE
 	bool gameEnd = false; 　　　　       //ゲーム終了フラグ
 
-	public int count; 　　　　　　　　　//残りカウント
+	private int count; 　　　　　　　　　//残りカウント
 
-	public Text countText; //カウントのテキスト
+	public Text countText;               //カウントのテキスト
 
-	public GameObject cameraObject; 　　//カメラオブジェクト
+	public GameObject cameraObject; 　　 //カメラオブジェクト
 	CameraRotate cameraRotate;
-
-	public GameObject cubeObject;
 
 	void Start()
 	{
@@ -85,7 +83,6 @@ public class CubeMove : MonoBehaviour
 		countText.text = "6"; //残りの染めないといけない面の数
 
 		cameraRotate = cameraObject.GetComponent<CameraRotate>(); //CameraRotateのCS情報
-
 	}
 
 
@@ -111,7 +108,7 @@ public class CubeMove : MonoBehaviour
 				//playSoundに送る
 				playSound.SendMessage("OnEnter");
 
-				Debug.Log("win");
+				//Debug.Log("win");
 
 			}
 
@@ -125,10 +122,10 @@ public class CubeMove : MonoBehaviour
 			{
 				count++;
 			}
-
 		}
 
-		countText.text = count.ToString(); //残りの数を表示する
+		//残りの数を表示する
+		countText.text = count.ToString(); 
 
 		//回転中は入力を受け付けない
 		if (isRotate)
@@ -149,7 +146,6 @@ public class CubeMove : MonoBehaviour
 				//右
 				if (Input.GetKeyDown(KeyCode.RightArrow))
 				{
-
 					rotatePoint = transform.position + new Vector3(cubeSizeHalf, -cubeSizeHalf, 0f);
 					rotateAxis = new Vector3(0, 0, -1);
 				}
@@ -157,10 +153,8 @@ public class CubeMove : MonoBehaviour
 				//左
 				if (Input.GetKeyDown(KeyCode.LeftArrow))
 				{
-
 					rotatePoint = transform.position + new Vector3(-cubeSizeHalf, -cubeSizeHalf, 0f);
 					rotateAxis = new Vector3(0, 0, 1);
-
 				}
 
 				//上
@@ -190,7 +184,6 @@ public class CubeMove : MonoBehaviour
 				//右
 				if (Input.GetKeyDown(KeyCode.RightArrow))
 				{
-
 					rotatePoint = transform.position + new Vector3(0f, -cubeSizeHalf, -cubeSizeHalf);
 					rotateAxis = new Vector3(-1, 0, 0);
 				}
@@ -198,10 +191,8 @@ public class CubeMove : MonoBehaviour
 				//左
 				if (Input.GetKeyDown(KeyCode.LeftArrow))
 				{
-
 					rotatePoint = transform.position + new Vector3(0f, -cubeSizeHalf, cubeSizeHalf);
 					rotateAxis = new Vector3(1, 0, 0);
-
 				}
 
 				//上
@@ -231,7 +222,6 @@ public class CubeMove : MonoBehaviour
 				//右
 				if (Input.GetKeyDown(KeyCode.RightArrow))
 				{
-
 					rotatePoint = transform.position + new Vector3(0f, -cubeSizeHalf, cubeSizeHalf);
 					rotateAxis = new Vector3(1, 0, 0);
 				}
@@ -239,10 +229,8 @@ public class CubeMove : MonoBehaviour
 				//左
 				if (Input.GetKeyDown(KeyCode.LeftArrow))
 				{
-
 					rotatePoint = transform.position + new Vector3(0f, -cubeSizeHalf, -cubeSizeHalf);
 					rotateAxis = new Vector3(-1, 0, 0);
-
 				}
 
 				//上
@@ -271,7 +259,6 @@ public class CubeMove : MonoBehaviour
 				//右
 				if (Input.GetKeyDown(KeyCode.RightArrow))
 				{
-
 					rotatePoint = transform.position + new Vector3(-cubeSizeHalf, -cubeSizeHalf, 0f);
 					rotateAxis = new Vector3(0, 0, 1);
 				}
@@ -279,10 +266,8 @@ public class CubeMove : MonoBehaviour
 				//左
 				if (Input.GetKeyDown(KeyCode.LeftArrow))
 				{
-
 					rotatePoint = transform.position + new Vector3(cubeSizeHalf, -cubeSizeHalf, 0f);
 					rotateAxis = new Vector3(0, 0, -1);
-
 				}
 
 				//上
@@ -333,7 +318,7 @@ public class CubeMove : MonoBehaviour
 
 		//回転中のフラグを倒す
 		isRotate = false;
-		Debug.Log("isRotate false");
+		//Debug.Log("isRotate false");
 		rotatePoint = Vector3.zero;
 		rotateAxis = Vector3.zero;
 

@@ -35,6 +35,7 @@ public class CameraRotate : MonoBehaviour
         //左クリック
         if (Input.GetMouseButton(0) && Input.GetMouseButtonDown(0))
         {
+            //カメラが回っているときは操作できないようにする
             if (!rotateFlag)
             {
                 rotateFlag = true;
@@ -47,7 +48,7 @@ public class CameraRotate : MonoBehaviour
                     count = 0;
                 }
 
-                Debug.Log(count);
+               // Debug.Log(count);
 
                 //左回転呼び出し
                 StartCoroutine(LeftMove());
@@ -58,6 +59,7 @@ public class CameraRotate : MonoBehaviour
         //右クリック
         if (Input.GetMouseButton(1) && Input.GetMouseButtonDown(1))
         {
+            //カメラが回っているときは操作できないようにする
             if (!rotateFlag)
             {
                 rotateFlag = true;
@@ -71,7 +73,7 @@ public class CameraRotate : MonoBehaviour
                     count = 0;
                 }
 
-                Debug.Log(count);
+                //Debug.Log(count);
 
                 //右回転呼び出し
                 StartCoroutine(RightMove());

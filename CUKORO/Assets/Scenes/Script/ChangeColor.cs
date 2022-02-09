@@ -12,6 +12,7 @@ public class ChangeColor : MonoBehaviour
     //オブジェクトが衝突したとき
     void OnTriggerEnter(Collider other)
     {
+        //変わる色が青色の場合
         if (other.gameObject.name == "Blue")
         {
             var change = other.gameObject.GetComponent<Renderer>().material;
@@ -20,10 +21,11 @@ public class ChangeColor : MonoBehaviour
 
             mycolor = panelsetcolor.Blue;
 
+            //playsoundに開始メッセージをとばす
             playSound.SendMessage("OnStart");
-
         }
 
+        //変わる色が赤色の場合
         if (other.gameObject.name == "Red")
         {
             var change = other.gameObject.GetComponent<Renderer>().material;
@@ -31,9 +33,6 @@ public class ChangeColor : MonoBehaviour
             plane.gameObject.GetComponent<Renderer>().material = change;
 
             mycolor = panelsetcolor.Red;
-
         }
-        
-        
     }
 }

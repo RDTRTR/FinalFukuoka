@@ -5,9 +5,7 @@ using UnityEngine;
 public class GameEnd : MonoBehaviour
 {
     private GameManager gameManager;
-
-    private bool gameClear;
-    // Start is called before the first frame update
+    
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -18,6 +16,4 @@ public class GameEnd : MonoBehaviour
     {
         
     }
-
-    
 }
